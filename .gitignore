@@ -1,0 +1,6 @@
+backend/lambda/delete-todo/delete-todo
+backend/lambda/delete-todo/delete-todo.zip
+frontend/build/out.wasm
+frontend/policy.json
+frontend/wasm_exec.js
+frontend/json_config/policy.json
