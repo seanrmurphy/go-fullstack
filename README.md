@@ -1,5 +1,12 @@
 # A simple fullstack application using golang
 
+Clone this repo as follows:
+
+```
+  mkdir -p $GOPATH/github.com/seanrmurphy
+  go get github.com/seanrmurphy/go-fullstack.git
+```
+
 Information on the backend is in the backend directory; information on the
 setup of the frontend is in the frontend directory.
 
