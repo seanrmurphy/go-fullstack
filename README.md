@@ -14,3 +14,5 @@ Setting up the backend first is recommended.
 
 See the set of medium posts here for more information.
 
+https://medium.com/@sean_24982/experimenting-with-full-stack-development-in-go-part-1-setting-the-scene-963adb40b189
+
