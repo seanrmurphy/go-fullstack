@@ -4,7 +4,7 @@ Clone this repo as follows:
 
 ```
   mkdir -p $GOPATH/github.com/seanrmurphy
-  go get github.com/seanrmurphy/go-fullstack.git
+  git clone https://github.com/seanrmurphy/go-fullstack.git $GOPATH/github.com/seanrmurphy/go-fullstack
 ```
 
 Information on the backend is in the backend directory; information on the
