@@ -1,6 +1,6 @@
 #! /usr/bin/env bash
 
-PROFILE=superuser
+PROFILE=default
 ROLENAME=go-fullstack-test-role
 
 # note that with dynamodb you only specify essential attributes at db creation time...
@@ -12,7 +12,7 @@ aws iam attach-role-policy --role-name $ROLENAME --policy-arn "arn:aws:iam::aws:
 aws iam attach-role-policy --role-name $ROLENAME --policy-arn "arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole" --profile $PROFILE
 aws iam attach-role-policy --role-name $ROLENAME --policy-arn "arn:aws:iam::aws:policy/AWSLambdaInvocation-DynamoDB" --profile $PROFILE
 
-ROLEARN=$(aws iam get-role --role-name $ROLENAME --profile superuser | jq -r '.Role.Arn')
+ROLEARN=$(aws iam get-role --role-name $ROLENAME --profile $PROFILE | jq -r '.Role.Arn')
 echo
 echo "To set up the lambda functions and the API gateway, please set the following environment variable"
 echo

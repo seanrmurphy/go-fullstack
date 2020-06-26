@@ -1,6 +1,6 @@
 #! /usr/bin/env bash
 
-PROFILE=superuser
+PROFILE="$GOFULLSTACKPROFILE"
 ROLE="$GOFULLSTACKROLE"
 
 build() {

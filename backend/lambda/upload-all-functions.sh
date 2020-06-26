@@ -61,6 +61,19 @@ upload()  {
   ./upload.sh
 }
 
+check_env_vars() {
+	if [ -z "$GOFULLSTACKPROFILE" ]
+	then
+		echo "Environment variable GOFULLSTACKPROFILE not defined...exiting..."
+		exit
+	fi
+
+	if [ -z "$GOFULLSTACKROLE" ]
+	then
+		echo "Environment variable GOFULLSTACKROLE not defined...exiting..."
+		exit
+	fi
+}
 
 while getopts ":u" opt; do
   case ${opt} in
@@ -71,6 +84,8 @@ while getopts ":u" opt; do
       ;;
   esac
 done
+
+check_env_vars
 
 if [[ $UPDATE = "true" ]]
 then
