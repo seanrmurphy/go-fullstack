@@ -1,10 +1,5 @@
 #! /usr/bin/env bash
 
-PROFILE=superuser
-ROLE="$GOFULLSTACKROLE"
-
-REGION=eu-west-1
-
 # assumes AWS CLI v2
 #
 # this really is stretching bash...I guess this is what the serverless framework
@@ -17,7 +12,7 @@ create_rest_api() {
 
 get_resource_id() {
 	RESOURCE=$1
-  RESOURCEID=$(aws apigateway get-resources --rest-api-id $RESTAPIID --profile superuser | jq -r ".items[] | select( .path == \"$RESOURCE\") | .id")
+  RESOURCEID=$(aws apigateway get-resources --rest-api-id $RESTAPIID --profile "$PROFILE" | jq -r ".items[] | select( .path == \"$RESOURCE\") | .id")
   printf "TODO RESOURCE ID = $RESOURCEID \n"
 }
 
@@ -30,6 +25,27 @@ get_function_arn() {
 put_integration() {
   aws apigateway put-integration --rest-api-id $RESTAPIID --resource-id $1 --http-method $2 --type AWS_PROXY --integration-http-method POST --uri $3 --profile $PROFILE --credentials $ROLE
 }
+
+check_env_vars() {
+	if [ -z "$GOFULLSTACKPROFILE" ]
+	then
+		echo "Environment variable GOFULLSTACKPROFILE not defined...exiting..."
+		exit
+	fi
+
+	if [ -z "$GOFULLSTACKROLE" ]
+	then
+		echo "Environment variable GOFULLSTACKROLE not defined...exiting..."
+		exit
+	fi
+}
+
+check_env_vars
+
+PROFILE="$GOFULLSTACKPROFILE"
+ROLE="$GOFULLSTACKROLE"
+
+REGION=eu-west-1
 
 create_rest_api
 get_resource_id "/todo"
