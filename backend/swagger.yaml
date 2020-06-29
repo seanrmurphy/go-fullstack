@@ -34,9 +34,9 @@ paths:
       x-amazon-apigateway-integration:
         type: mock
         requestTemplates:
-          application/json:
+          application/json: |
             {
-              "statusCode" : 200
+              "statusCode": 200
             }
         responses:
           "default":
@@ -46,7 +46,7 @@ paths:
               method.response.header.Access-Control-Allow-Methods : "'*'"
               method.response.header.Access-Control-Allow-Origin : "'*'"
             responseTemplates:
-              application/json:
+              application/json: |
                 {}
       responses:
         200:
@@ -116,9 +116,9 @@ paths:
       x-amazon-apigateway-integration:
         type: mock
         requestTemplates:
-          application/json:
+          application/json: |
             {
-              "statusCode" : 200
+              "statusCode": 200
             }
         responses:
           "default":
@@ -128,7 +128,7 @@ paths:
               method.response.header.Access-Control-Allow-Methods : "'*'"
               method.response.header.Access-Control-Allow-Origin : "'*'"
             responseTemplates:
-              application/json:
+              application/json: |
                 {}
       responses:
         200:
